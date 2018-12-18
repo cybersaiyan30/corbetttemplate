@@ -98,3 +98,19 @@ jQuery(document).ready(function($){
 		}
 	}
 });
+
+var $form = $('form#test-form'),
+    url = 'https://script.google.com/macros/s/AKfycbxcS3D1yAQvPr53QEF6rD5YvRCqJNiykjOTnzRp4QlmH4gpBkOS/exec'
+
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serialize()
+  }).success(
+	// do something
+	alert('success')
+  );
+})
